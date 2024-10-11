@@ -94,7 +94,7 @@ const Footer = () => {
         </FooterSocialContainer>
       </FooterLinksBar>
       <FooterCopyright>
-        <FooterCopyrightText>© Copyright Luna 2020</FooterCopyrightText>
+        <FooterCopyrightText>© Copyright Luna 2024</FooterCopyrightText>
       </FooterCopyright>
     </FooterContainer>
   );
