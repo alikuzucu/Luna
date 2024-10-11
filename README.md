@@ -20,25 +20,25 @@ Luna is a sleek restaurant reviewing and rating app designed for food lovers. Wh
 ## 📸 **Screenshots**
 
 - **Login Page**
-  ![Login Page Screenshot](./1_luna_login.png)
+  ![Login Page Screenshot](./screenshots/luna_login.png)
 
 - **Homepage**
-  ![Homepage Screenshot](./2_luna_home.png)
+  ![Homepage Screenshot](./screenshots/luna_home.png)
 
 - **Restaurant Page**
-  ![Restaurant Page Screenshot](./3_luna_restaurant.png)
+  ![Restaurant Page Screenshot](./screenshots/luna_restaurant.png)
 
 - **Search by Restaurant**
-  ![Search by Restaurant Screenshot](./4_luna_search_res.png)
+  ![Search by Restaurant Screenshot](./screenshots/luna_search_res.png)
 
 - **Search by Review**
-  ![Search by Review Screenshot](./5_luna_search_rev.png)
+  ![Search by Review Screenshot](./screenshots/luna_search_rev.png)
 
 - **Search by User**
-  ![Search by User Screenshot](./6_luna_search_user.png)
+  ![Search by User Screenshot](./screenshots/luna_search_user.png)
 
 - **Create Review Page**
-  ![Create Review Page Screenshot](./7_luna_create.png)
+  ![Create Review Page Screenshot](./screenshots/luna_create.png)
 
 ## 🏗️ **Setup and Installation**
 
@@ -46,3 +46,5 @@ Luna is a sleek restaurant reviewing and rating app designed for food lovers. Wh
    ```bash
    git clone https://github.com/your-username/luna.git
    cd luna
+   
+2. **Set up the environment**:
