@@ -40,11 +40,12 @@ Luna is a sleek restaurant reviewing and rating app designed for food lovers. Wh
 - **Create Review Page**
   ![Create Review Page Screenshot](./screenshots/luna_create.png)
 
-## 🏗️ **Setup and Installation**
+## 📚 **How to Use**
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/luna.git
-   cd luna
-   
-2. **Set up the environment**:
+- **Login Page**: Enter your credentials to access the app.
+- **Homepage**: View top-rated restaurants and user reviews.
+- **Restaurant Page**: Click on a restaurant to view its details and reviews.
+- **Search**: Find restaurants or reviews by keywords, or search by users.
+- **Add Review**: If you're logged in, you can add your own reviews.
+- **Comment on Reviews**: Join conversations by commenting on existing reviews.
+
