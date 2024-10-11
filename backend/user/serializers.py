@@ -1,69 +1,24 @@
-from django.contrib.auth import get_user_model
-from django.core.mail import send_mail
 from rest_framework import serializers
 
-User = get_user_model()
+from user.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = '__all__'
-        read_only_fields = ('date_joined', 'last_login', 'code')
+    count_reviews = serializers.SerializerMethodField()
+    count_comments = serializers.SerializerMethodField()
 
+    def get_count_reviews(self, review):
+        return review.fk_review_user.all().count()
 
-class UserUpdateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email', 'date_joined', 'last_login', 'first_name', 'last_name', 'about_me',
-                  'location', 'profile_picture']
-
-
-class UserRegistrationSerializer(serializers.ModelSerializer):
-    password_repeat = serializers.CharField(write_only=True)
+    def get_count_comments(self, comment):
+        return comment.fk_comment_user.all().count()
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password', 'password_repeat', 'first_name', 'last_name', 'code', 'location']
-
-    def validate(self, attrs):
-        password = attrs.get('password')
-        password_repeat = attrs.get('password_repeat')
-
-        if password != password_repeat:
-            raise serializers.ValidationError({'repeat_password': 'Passwords must match.'})
-
-        return attrs
-
-    def update(self, instance, validated_data):
-        validated_data.pop('password_repeat')  # Remove password-repeat since it's not needed for user update
-        password = validated_data.pop('password', None)
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
-        if password:
-            instance.set_password(password)
-            instance.save()
-            return instance
+        fields = ['id', 'email', 'username', 'first_name', 'last_name', 'location', 'phone', 'description', 'things_i_love', 'joined_date', 'profile_picture', 'count_reviews', 'count_comments']
 
 
-class FirstUserRegistrationSerializer(serializers.ModelSerializer):
+class UserRegistration(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'email']
-
-    def create(self, validated_data):
-        email = validated_data.get('email')
-        new_user = User(
-            email=email,
-            is_active=False,
-        )
-        new_user.save()
-
-        send_mail(
-            'Thank you for registering!',
-            f'Your validation code is {new_user.code}',
-            'Luna2backend1@gmail.com',
-            [f'{new_user.email}'],
-            fail_silently=False,
-        )
-        return new_user
+        fields = ['id', 'email', 'code', 'username', 'location', 'password', 'password_repeat']

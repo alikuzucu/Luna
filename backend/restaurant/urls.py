@@ -1,13 +1,11 @@
 from django.urls import path
 
-from restaurant.views import GetAllRestaurants, PostRestaurants, GetRestaurantsPerCategory, GetRestaurantsByUser, \
-    GetEditDeleteRestaurant
+from restaurant.views import ListRestaurantView, CreateRestaurantView, ListRestaurantsByCategory, ListRestaurantsByUser, RestrieveUpdateDestroyRestaurantView
 
 urlpatterns = [
-    path('', GetAllRestaurants.as_view()),
-    path('new/', PostRestaurants.as_view()),
-    path('category/<int:category_id>/', GetRestaurantsPerCategory.as_view()),
-    path('user/<int:user_id>/', GetRestaurantsByUser.as_view()),
-    path('<int:id>/', GetEditDeleteRestaurant.as_view()),
-
+    path('', ListRestaurantView.as_view()),
+    path('new/', CreateRestaurantView.as_view()),
+    path('category/<int:category_id>/', ListRestaurantsByCategory.as_view()),
+    path('user/<int:user_id>/', ListRestaurantsByUser.as_view()),
+    path('<int:pk>/', RestrieveUpdateDestroyRestaurantView.as_view()),
 ]
